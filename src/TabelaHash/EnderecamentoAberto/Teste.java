@@ -28,7 +28,7 @@ public class Teste {
         }
 
         // Removendo um jogador por chave
-        int chaveRemover = 20;
+        int chaveRemover = 10;
         Jogador jogadorRemovido = tabela.remover(chaveRemover);
         if (jogadorRemovido != null) {
             System.out.println("Jogador removido: " + jogadorRemovido.getNome());
