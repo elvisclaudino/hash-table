@@ -9,12 +9,14 @@ public class Teste {
         Jogador jogador1 = new Jogador(10, "Neymar");
         Jogador jogador2 = new Jogador(11, "Coutinho");
         Jogador jogador3 = new Jogador(12, "Marcelo");
+        Jogador jogador4 = new Jogador(0, "João");
 
         tabelaHash.exibirTabela();
 
         tabelaHash.inserir(jogador1);
         tabelaHash.inserir(jogador2);
         tabelaHash.inserir(jogador3);
+        tabelaHash.inserir(jogador4);
 
         tabelaHash.exibirTabela();
 
