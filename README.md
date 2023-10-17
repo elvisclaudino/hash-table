@@ -1,5 +1,5 @@
 
-# PjBL 2 - Árvore Binária
+# PjBL 3 - Tabela Hashing
 
 Tabela Hashing é um método eficiente de armazenar dados, otimizando o uso de memória e agilizando a inserção e recuperação de informações. Ela utiliza um vetor onde os índices correspondem às chaves dos elementos, calculadas por uma função de hashing. Cada elemento deve ter uma chave única, seja numérica ou alfanumérica. O cálculo de chave mais comum para números é o resto da divisão pelo tamanho da tabela.
 
@@ -41,13 +41,13 @@ Neste último caso o novo elemento não ficou na posição que deveria, pois est
 Armazenou-se na próxima vaga, que não é a dele. O próximo que chegar, caso seja este o
 endereço de direito, terá que procurar o próximo vago. 
 
-![ABB](https://i.imgur.com/6dkbWTs.png)
+![image](https://github.com/elvisclaudino/hash-table/assets/102040112/be225014-7a76-40dd-8c82-ad24dfff4e7d)
 
 ## Uso
 
 O exemplo de uso pode ser encontrado no arquivo `Teste.java` dentro da pasta ABB, onde são demonstradas as operações de inserção, busca e impressão em uma ABB.
 
-![image](https://github.com/elvisclaudino/binary-tree-java-PSC/assets/102040112/764c1602-40b1-412a-a220-f8c0747fb86c)
+![image](https://github.com/elvisclaudino/hash-table/assets/102040112/59fb92d3-428a-4036-9094-03daf7a03b57)
 
 # [Encadeamento](https://braganholo.github.io/material/ed/13-TabelasHash-Encadeamento-Exterior.pdf)
 
@@ -57,13 +57,13 @@ listas simplesmente encadeadas (listas ligadas). Dessa forma, teoricamente, não
 limite para armazenamento e é um modelo bastante funcional para armazenamentos, em
 memória, de mais longo prazo.
 
-![AVL](https://i.imgur.com/yTAp9ee.png)
+![image](https://github.com/elvisclaudino/hash-table/assets/102040112/1293b1f3-b872-4d0c-8d54-7f8780d1fbbb)
 
 ## Uso
 
 O exemplo de uso pode ser encontrado no arquivo `Teste.java` dentro da pasta AVL, onde são demonstradas as operações de inserção, busca e impressão em uma ABB.
 
-![image](https://github.com/elvisclaudino/binary-tree-java-PSC/assets/102040112/786272e9-7379-4409-a6b2-a33d6f5f47cb)
+
 
 
 
