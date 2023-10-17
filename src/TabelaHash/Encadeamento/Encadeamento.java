@@ -84,7 +84,7 @@ public class Encadeamento extends EstruturaHash {
             if (time[i] != null) {
                 System.out.print("Slot " + i + ": "); // exibe o slot
                 for (Jogador jogador : time[i]) { // percorre a lista
-                    System.out.print(jogador.getNome() + " -> "); // exibe o jogador
+                    System.out.print(jogador.getNumeroCamisa() + " " + jogador.getNome() + " -> "); // exibe o jogador
                 }
                 System.out.println(); // Move to the next line after printing the players in the slot
             }

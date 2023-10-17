@@ -10,16 +10,14 @@ public class EstruturaHash implements Metodos{
     @Override
     public int funcaoHash(int chave) {
         return chave % this.tamanho;
-    }
+    } // função hash para o método de divisão
 
     public int funcaoHash(int chave, int tamanho) {
         return chave % this.tamanho;
     }
 
     @Override
-    public void inserir(Jogador jogador) {
-
-    }
+    public void inserir(Jogador jogador) {} // insere um jogador na tabela
 
     @Override
     public Jogador buscar(int chave) {

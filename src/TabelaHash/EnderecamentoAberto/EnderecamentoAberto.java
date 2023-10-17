@@ -91,7 +91,7 @@ public class EnderecamentoAberto extends EstruturaHash {
         for (int i = 0; i < tamanho; i++) {
             System.out.print("Slot " + i + ": ");
             if (time[i] != null) {
-                System.out.print(time[i].getNome() + " "); // Exibe o nome do jogador no slot
+                System.out.print(time[i].getNumeroCamisa() + " " + time[i].getNome() + " "); // Exibe o nome do jogador no slot
             }
             System.out.println(" ");
         }
