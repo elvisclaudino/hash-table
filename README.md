@@ -47,7 +47,7 @@ endereço de direito, terá que procurar o próximo vago.
 
 O exemplo de uso pode ser encontrado no arquivo `Teste.java` dentro da pasta ABB, onde são demonstradas as operações de inserção, busca e impressão em uma ABB.
 
-![image](https://github.com/elvisclaudino/hash-table/assets/102040112/59fb92d3-428a-4036-9094-03daf7a03b57)
+![image](https://github.com/elvisclaudino/hash-table/assets/102040112/2e847ceb-a5e5-476f-82f8-5125ac37d0b1)
 
 # [Encadeamento](https://braganholo.github.io/material/ed/13-TabelasHash-Encadeamento-Exterior.pdf)
 
@@ -62,6 +62,8 @@ memória, de mais longo prazo.
 ## Uso
 
 O exemplo de uso pode ser encontrado no arquivo `Teste.java` dentro da pasta AVL, onde são demonstradas as operações de inserção, busca e impressão em uma ABB.
+
+![image](https://github.com/elvisclaudino/hash-table/assets/102040112/59fb92d3-428a-4036-9094-03daf7a03b57)
 
 
 
