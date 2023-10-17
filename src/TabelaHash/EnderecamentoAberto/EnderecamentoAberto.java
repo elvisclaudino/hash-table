@@ -1,12 +1,12 @@
 package TabelaHash.EnderecamentoAberto;
 import TabelaHash.EstruturaHash;
 import TabelaHash.Jogador;
-import java.util.ArrayList;
-import java.util.List;
 
 public class EnderecamentoAberto extends EstruturaHash {
     private int tamanho; // tamanho da tabela
     private Jogador[] time; // vetor de jogadores
+    private int numeroElementos; // número de elementos na tabela
+    private double fatorCargaLimite = 0.7; // fator de carga limite
 
     // Construtor para inicializar a tabela hash com um tamanho específico
     public EnderecamentoAberto(int tamanho) {
@@ -26,6 +26,11 @@ public class EnderecamentoAberto extends EstruturaHash {
         }
 
         time[indice] = jogador; // Insere o jogador no slot vazio
+        numeroElementos++;
+
+        if ((double) numeroElementos / tamanho > fatorCargaLimite) {
+            redimensionar();
+        }
     }
 
     // Método para buscar um jogador na tabela hash com base em sua chave
@@ -56,6 +61,27 @@ public class EnderecamentoAberto extends EstruturaHash {
             indice = (indice + 1) % tamanho; // Avança para o próximo slot
         }
         return null; // Retorna nulo se o jogador não for encontrado para remoção
+    }
+
+    private void redimensionar() {
+        int novoTamanho = tamanho * 2; // Novo tamanho da tabela
+        Jogador[] novoTime = new Jogador[novoTamanho]; // Novo vetor de jogadores
+
+        for (Jogador jogador : time) {
+            if (jogador != null) {
+                int chave = jogador.getNumeroCamisa();
+                int indice = funcaoHash(chave, novoTamanho); // Calcula o índice com base na chave do jogador
+
+                while (novoTime[indice] != null) {
+                    indice = (indice + 1) % novoTamanho; // Avança para o próximo slot
+                }
+
+                novoTime[indice] = jogador; // Insere o jogador no slot vazio
+            }
+        }
+
+        time = novoTime; // Atualiza o vetor de jogadores
+        tamanho = novoTamanho; // Atualiza o tamanho da tabela
     }
 
     // Método para exibir a tabela hash

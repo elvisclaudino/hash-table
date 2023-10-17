@@ -6,17 +6,27 @@ import java.util.LinkedList;
 public class Encadeamento extends EstruturaHash {
     private int tamanho; // tamanho da tabela
     private LinkedList<Jogador>[] time; // vetor de listas encadeadas
+    private int numeroElementos; // número de elementos na tabela
+    private double fatorCargaLimite = 0.7; // fator de carga limite
+
     public Encadeamento(int tamanho) {
         super(tamanho);
         this.time = new LinkedList[tamanho]; // cria o vetor de listas
         for (int i = 0; i < tamanho; i++) {
             this.time[i] = new LinkedList<>();
         }
+        this.numeroElementos = 0;
     }
 
     public void inserir(Jogador jogador) { // insere um jogador na tabela
         int chave = jogador.getNumeroCamisa(); // chave do jogador
+
         time[funcaoHash(chave)].add(jogador); // adiciona o jogador na lista
+        numeroElementos++; // incrementa o número de elementos
+
+        if((double) numeroElementos / tamanho > fatorCargaLimite) {
+            redimensionar(); // redimensiona a tabela caso o fator de carga seja maior que o limite
+        }
     }
 
     public Jogador buscar(int chave) { // busca um jogador na tabela
@@ -36,6 +46,29 @@ public class Encadeamento extends EstruturaHash {
             }
         }
         return null; // retorna null caso não encontre o jogador
+    }
+
+    private void redimensionar() {
+        int novoTamanho = tamanho * 2; // novo tamanho da tabela
+        LinkedList<Jogador>[] novoTime = new LinkedList[novoTamanho]; // novo vetor de listas
+
+        for (LinkedList<Jogador> lista : time) { // percorre o vetor de listas
+            if (lista != null) {  // verifica se a lista não é nula
+                for (Jogador jogador : lista) { // percorre a lista
+                    int chave = jogador.getNumeroCamisa(); // chave do jogador
+                    int indice = funcaoHash(chave, novoTamanho); // calcula o índice com base na chave
+
+                    if(novoTime[indice] == null) { // verifica se a lista é nula
+                        novoTime[indice] = new LinkedList<>(); // cria uma nova lista
+                    }
+
+                    novoTime[indice].add(jogador); // adiciona o jogador na lista
+                }
+            }
+        }
+
+        time = novoTime; // substitui o vetor de listas
+        tamanho = novoTamanho; // substitui o tamanho da tabela
     }
 
     public void exibirTabela() { // exibe a tabela

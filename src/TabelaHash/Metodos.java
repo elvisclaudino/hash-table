@@ -5,6 +5,5 @@ public interface Metodos {
     public void inserir(Jogador jogador);
     public Jogador buscar(int chave);
     public Jogador remover(int chave);
-    public void redimensionar();
     public void exibirTabela();
 }

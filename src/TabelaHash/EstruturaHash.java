@@ -12,6 +12,10 @@ public class EstruturaHash implements Metodos{
         return chave % this.tamanho;
     }
 
+    public int funcaoHash(int chave, int tamanho) {
+        return chave % this.tamanho;
+    }
+
     @Override
     public void inserir(Jogador jogador) {
 
@@ -28,11 +32,9 @@ public class EstruturaHash implements Metodos{
     }
 
     @Override
-    public void redimensionar() {
-
+    public void exibirTabela() {
     }
 
-    @Override
-    public void exibirTabela() {
+    private void redimensionar() {
     }
 }
