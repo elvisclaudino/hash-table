@@ -11,6 +11,7 @@ public class Encadeamento extends EstruturaHash {
 
     public Encadeamento(int tamanho) {
         super(tamanho);
+        this.tamanho = tamanho;
         this.time = new LinkedList[tamanho]; // cria o vetor de listas
         for (int i = 0; i < tamanho; i++) {
             this.time[i] = new LinkedList<>();
@@ -20,8 +21,13 @@ public class Encadeamento extends EstruturaHash {
 
     public void inserir(Jogador jogador) { // insere um jogador na tabela
         int chave = jogador.getNumeroCamisa(); // chave do jogador
+        int indice = funcaoHash(chave); // calcula o índice com base na chave
 
-        time[funcaoHash(chave)].add(jogador); // adiciona o jogador na lista
+        if(time[indice] == null) { // verifica se a lista é nula
+            time[indice] = new LinkedList<>(); // cria uma nova lista
+        }
+
+        time[indice].add(jogador); // adiciona o jogador na lista
         numeroElementos++; // incrementa o número de elementos
 
         if((double) numeroElementos / tamanho > fatorCargaLimite) {
@@ -52,9 +58,9 @@ public class Encadeamento extends EstruturaHash {
         int novoTamanho = tamanho * 2; // novo tamanho da tabela
         LinkedList<Jogador>[] novoTime = new LinkedList[novoTamanho]; // novo vetor de listas
 
-        for (LinkedList<Jogador> lista : time) { // percorre o vetor de listas
-            if (lista != null) {  // verifica se a lista não é nula
-                for (Jogador jogador : lista) { // percorre a lista
+        for (int i = 0; i < tamanho; i++) { // percorre o vetor de listas
+            if (time[i] != null) {  // verifica se a lista não é nula
+                for (Jogador jogador : time[i]) { // percorre a lista
                     int chave = jogador.getNumeroCamisa(); // chave do jogador
                     int indice = funcaoHash(chave, novoTamanho); // calcula o índice com base na chave
 
@@ -75,11 +81,13 @@ public class Encadeamento extends EstruturaHash {
         System.out.println("===================================");
         System.out.println("Tabela Hash de Encadeamento:");
         for (int i = 0; i < time.length; i++) { // percorre o vetor de listas
-            System.out.print("Slot " + i + ": "); // exibe o slot
-            for (Jogador jogador : time[i]) { // percorre a lista
-                System.out.print(jogador.getNome() + " -> "); // exibe o jogador
+            if (time[i] != null) {
+                System.out.print("Slot " + i + ": "); // exibe o slot
+                for (Jogador jogador : time[i]) { // percorre a lista
+                    System.out.print(jogador.getNome() + " -> "); // exibe o jogador
+                }
+                System.out.println(); // Move to the next line after printing the players in the slot
             }
-            System.out.println("null"); // exibe null caso a lista esteja vazia
         }
         System.out.println("===================================");
     }
