@@ -45,7 +45,7 @@ endereço de direito, terá que procurar o próximo vago.
 
 ## Uso
 
-O exemplo de uso pode ser encontrado no arquivo `Teste.java` dentro da pasta ABB, onde são demonstradas as operações de inserção, busca e impressão em uma ABB.
+O exemplo de uso pode ser encontrado no arquivo `Teste.java` dentro da pasta EnderecamentoAberto, onde são demonstradas as operações de inserção, busca e impressão da tabela.
 
 ![image](https://github.com/elvisclaudino/hash-table/assets/102040112/2e847ceb-a5e5-476f-82f8-5125ac37d0b1)
 
@@ -61,7 +61,7 @@ memória, de mais longo prazo.
 
 ## Uso
 
-O exemplo de uso pode ser encontrado no arquivo `Teste.java` dentro da pasta AVL, onde são demonstradas as operações de inserção, busca e impressão em uma ABB.
+O exemplo de uso pode ser encontrado no arquivo `Teste.java` dentro da pasta Encadeamento, onde são demonstradas as operações de inserção, busca e impressão da tabela.
 
 ![image](https://github.com/elvisclaudino/hash-table/assets/102040112/59fb92d3-428a-4036-9094-03daf7a03b57)
 
