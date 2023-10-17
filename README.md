@@ -27,7 +27,7 @@ Tabela Hashing é um método eficiente de armazenar dados, otimizando o uso de m
 ## A classe `EstruturaHash` que implementa a interface `Metodos`.
 ## Utilizamos dois métodos de armazenamento, um de *Endereçamento e aberto* e outro de *Encadeamento*.
 
-<p>Sobrescrevem os métodos da interface conforme a estratéfia de armazenamento utilizada</p>
+<p>Sobrescrevem os métodos da interface conforme a estratégia de armazenamento utilizada</p>
 
 # [Endereçamento aberto](https://edisciplinas.usp.br/pluginfile.php/2340743/mod_resource/content/1/ACH2002-Aula20-HashEnderecamentoAberto.pdf)
 
