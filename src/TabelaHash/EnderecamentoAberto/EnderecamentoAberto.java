@@ -6,7 +6,8 @@ public class EnderecamentoAberto extends EstruturaHash {
     private int tamanho; // tamanho da tabela
     private Jogador[] time; // vetor de jogadores
     private int numeroElementos; // número de elementos na tabela
-    private double fatorCargaLimite = 0.7; // fator de carga limite
+    private double fatorCargaLimite = 0.75; // fator de carga limite
+    private final Jogador SLOT_VAZIO = new Jogador(-1, "SLOT VAZIO"); // jogador para representar um slot vazio
 
     // Construtor para inicializar a tabela hash com um tamanho específico
     public EnderecamentoAberto(int tamanho) {
@@ -21,7 +22,7 @@ public class EnderecamentoAberto extends EstruturaHash {
         int indice = funcaoHash(chave); // Calcula o índice com base na chave do jogador
 
         // Implementação da estratégia de sondagem (neste caso, sondagem linear) para lidar com colisões
-        while (time[indice] != null) {
+        while (time[indice] != null && !time[indice].equals(SLOT_VAZIO)) {
             indice = (indice + 1) % tamanho; // Avança para o próximo slot
         }
 
@@ -52,10 +53,10 @@ public class EnderecamentoAberto extends EstruturaHash {
         int indice = funcaoHash(chave); // Calcula o índice com base na chave
 
         // Implementação da estratégia de sondagem para localizar o jogador a ser removido
-        while (time[indice] != null) {
+        while (time[indice] != null && !time[indice].equals(SLOT_VAZIO)) {
             if (time[indice].getNumeroCamisa() == chave) {
                 Jogador jogadorRemovido = time[indice]; // Armazena o jogador a ser removido
-                time[indice] = null; // Remove o jogador
+                time[indice] = SLOT_VAZIO; // Substitui o jogador por um slot vazio
                 return jogadorRemovido; // Retorna o jogador removido
             }
             indice = (indice + 1) % tamanho; // Avança para o próximo slot

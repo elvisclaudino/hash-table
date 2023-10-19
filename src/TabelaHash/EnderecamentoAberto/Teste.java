@@ -57,5 +57,9 @@ public class Teste {
 
         // Exibindo a tabela após a remoção
         tabelaHash.exibirTabela();
+        System.out.println(tabelaHash.buscar(20).getNome());
+        tabelaHash.inserir(new Jogador(10, "Neymar Jr"));
+
+        tabelaHash.exibirTabela();
     }
 }
